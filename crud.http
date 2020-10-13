@@ -1,0 +1,22 @@
+
+# GET http://localhost:8080/user
+
+
+# POST http://localhost:8080/user
+# content-type: application/json
+
+# {
+#   "username": "newUser",
+#   "password": "password"
+# }
+
+
+# PUT http://localhost:8080/user/3
+# content-type: application/json
+
+# {
+#   "username": "Billy",
+#   "password": "password"
+# }
+
+# DELETE http://localhost:8080/user/2
