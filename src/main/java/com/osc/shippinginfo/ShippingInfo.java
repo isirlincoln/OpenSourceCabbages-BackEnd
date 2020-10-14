@@ -24,8 +24,6 @@ public class ShippingInfo {
 		this.userId = userId;
 	}
 
-
-    
 	public Integer getId() {
 		return this.id;
 	}
@@ -40,7 +38,6 @@ public class ShippingInfo {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
 	}
 
 	public String getCity() {
