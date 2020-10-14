@@ -1,7 +1,6 @@
 package com.osc.shippinginfo;
 
 import java.util.List;
-import java.lang.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,7 @@ public class ShippingInfoController {
     // READ
     @GetMapping("/shippinginfo")
     public List<ShippingInfo> getShippingInfo() {
-        List<ShippingInfo> foundUShippingInfo = dao.findAll();
+        List<ShippingInfo> foundShippingInfo = dao.findAll();
         return foundShippingInfo;
     }
 
@@ -36,7 +35,7 @@ public class ShippingInfoController {
             return ResponseEntity.notFound().header("Message", "Shipping information is not found").build();
         } else {
             if (shippingInfo.getAddress() != null) {
-                foundShippingInfo.setAddressOne(shippingInfo.getAddress());
+                foundShippingInfo.setAddress(shippingInfo.getAddress());
             }
             if (shippingInfo.getCity() != null) {
                 foundShippingInfo.setCity(shippingInfo.getCity());
@@ -61,8 +60,8 @@ public class ShippingInfoController {
 
     // DELETE
     @DeleteMapping("shippingInfo{id}")
-    public ResponseEntitshippingInfo deleteShippingInfo(@PathVariable(value = "id") Integer id) {
-        foundShippingInfo = dao.findById(id).orElse(null);
+    public ResponseEntity<ShippingInfo> deleteShippingInfo(@PathVariable(value = "id") Integer id) {
+        ShippingInfo foundShippingInfo = dao.findById(id).orElse(null);
         if (foundShippingInfo == null) {
             return ResponseEntity.notFound().header("Message","Shipping Info is not found").build();
         } else {
