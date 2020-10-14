@@ -16,7 +16,7 @@ public class Order {
 	
     
 	public Integer getId() {
-		return this.id;
+		return id;
 	}
 
 	public void setId(Integer id) {
@@ -24,7 +24,7 @@ public class Order {
     }
     
     public Double getPrice() {
-		return this.price;
+		return price;
 	}
 
 	public void setPrice(Double price) {
@@ -32,7 +32,7 @@ public class Order {
     }
     
     public Integer getQty() {
-		return this.qty;
+		return qty;
 	}
 
 	public void setQty(Integer qty) {
@@ -40,7 +40,7 @@ public class Order {
     }
 
     public Double getTotalPrice() {
-		return this.totalPrice;
+		return totalPrice;
 	}
 
 	public void setTotalPrice(Double totalPrice) {
@@ -48,7 +48,7 @@ public class Order {
     }
 
     public Integer getSupplierId() {
-		return this.supplierId;
+		return supplierId;
 	}
 
 	public void setSupplierId(Integer supplierId) {

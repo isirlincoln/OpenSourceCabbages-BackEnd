@@ -31,8 +31,8 @@ public class OrderController {
         if (foundOrder == null) {
             return ResponseEntity.notFound().header("Message", "Order is not found").build();
         } else {
-            if(Order.getId() != null) {
-                foundOrder.setId(Order.getId());
+            if(order.getId() != null) {
+                foundOrder.setId(order.getId());
             }
             dao.save(foundOrder);
         }
