@@ -11,6 +11,9 @@ public class User {
     private Integer id;
     private String username;
     private String password;
+    private boolean admin;
+    private boolean supplier;
+    private boolean deleted;
 
     public Integer getId() {
         return id;
@@ -36,4 +39,27 @@ public class User {
         this.password = password;
     }
 
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public boolean isSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(boolean supplier) {
+        this.supplier = supplier;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+	}
 }
