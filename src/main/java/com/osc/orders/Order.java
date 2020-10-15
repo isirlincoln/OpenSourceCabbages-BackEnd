@@ -2,6 +2,10 @@ package com.osc.orders;
 
 import javax.persistence.*;
 
+import com.osc.users.User;
+import com.osc.shippinginfo.ShippingInfo;
+
+
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -11,10 +15,17 @@ public class Order {
     private Integer id;
     private Double price;
     private Integer qty;
-    private Double totalPrice;
-	private Integer supplierId;
-	
+	private Double totalPrice;
+	@OneToOne(targetEntity = User.class)
+	@JoinColumn(name = "userId")
+	private int userId;
+	private String shippinginfolist;
+	private String userlist;
+	@OneToOne(targetEntity = ShippingInfo.class)
+	@JoinColumn(name = "shippinginfoId")
+	private int shippinginfoId;
     
+	
 	public Integer getId() {
 		return id;
 	}
@@ -45,14 +56,32 @@ public class Order {
 
 	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
-    }
-
-    public Integer getSupplierId() {
-		return supplierId;
+	}
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setSupplierId(Integer supplierId) {
-		this.supplierId = supplierId;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
-    
+   
+	public String getUserlist() {
+        return userlist;
+	}
+
+    public void setUserlist(String userlist) {
+        this.userlist = userlist;
+	}
+	public String getShippingInfolist() {
+		return shippinginfolist;
+	}
+
+    public void setShippingInfolist(String shippinginfolist) {
+        this.shippinginfolist = shippinginfolist;
+	}
+
+	@Override 
+	public String toString() {
+		return "Order{" + "id=" + this.id +  ", Customer ID:" + getUserId() + '}'; 
+	} 
 }
