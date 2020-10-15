@@ -1,6 +1,14 @@
 package com.osc.users;
 
+import java.util.List;
+
 import javax.persistence.*;
+
+import com.osc.orders.Order;
+import com.osc.shippinginfo.ShippingInfo;
+
+
+
 
 @Entity
 @Table(name = "users")
@@ -11,7 +19,19 @@ public class User {
     private Integer id;
     private String username;
     private String password;
+    private boolean admin;
+    private boolean supplier;
+    private boolean deleted;
 
+    @OneToMany
+    @JoinColumn(name = "userId")
+    private List <ShippingInfo>shippinginfolist;
+   
+    @OneToMany
+    @JoinColumn(name = "userId")
+    private List <Order> orderlist;
+    
+    
     public Integer getId() {
         return id;
     }
@@ -36,4 +56,27 @@ public class User {
         this.password = password;
     }
 
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public boolean isSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(boolean supplier) {
+        this.supplier = supplier;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+		this.deleted = deleted;
+    }   
 }
