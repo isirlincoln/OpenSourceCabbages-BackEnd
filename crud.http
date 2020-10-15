@@ -4,7 +4,6 @@
 
 
 
-<<<<<<< HEAD
  #POST http://localhost:8080/user HTTP/1.1
  #content-type: application/json
 
@@ -12,15 +11,6 @@
  #  "password": "fatAnnie",
 #   "username": "Annie",
 #}
-=======
-#  POST http://localhost:8080/user
-#  content-type: application/json
-
-#  {
-#    "username": "newUser",
-#   "password": "password"
-# }
->>>>>>> 5c359280d22da693039754e2079a2a94a6d665c3
 
 
 # PUT http://localhost:8080/user/3
