@@ -1,9 +1,12 @@
 package com.osc.shippinginfo;
 
+import java.util.List;
+
 import javax.persistence.*;
 
-import com.osc.users.User;
 import com.osc.orders.Order;
+
+
 
 @Entity
 @Table(name = "shippingInfo")
@@ -17,16 +20,11 @@ public class ShippingInfo {
     private String state;
     private int zipcode;
 	private String country;
-	@ManyToOne(targetEntity = User.class)
-	@JoinColumn(name = "userId")
 	private int userId;
-	@OneToOne(targetEntity = Order.class)
-	@JoinColumn(name = "orderId")
-	private int orderId;
 	
-	private String orderlist;
-    private String userlist;
-    
+	@OneToMany
+    @JoinColumn(name = "shippingId")
+    private List <Order> orderlist;
 
 	public int getUserId() {
 		return this.userId;
@@ -83,21 +81,4 @@ public class ShippingInfo {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
-	public String getUserlist() {
-        return userlist;
-	}
-
-    public void setUserlist(String userlist) {
-        this.userlist = userlist;
-	}
-
-	public String getOrderlist() {
-        return orderlist;
-	}
-
-    public void setOrderlist(String orderlist) {
-        this.orderlist = orderlist;
-    }
-
 }

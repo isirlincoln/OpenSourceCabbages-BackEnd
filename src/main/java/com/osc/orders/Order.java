@@ -1,8 +1,7 @@
 package com.osc.orders;
 
+import java.util.List;
 import javax.persistence.*;
-
-import com.osc.users.User;
 import com.osc.shippinginfo.ShippingInfo;
 
 
@@ -16,15 +15,13 @@ public class Order {
     private Double price;
     private Integer qty;
 	private Double totalPrice;
-	@OneToOne(targetEntity = User.class)
-	@JoinColumn(name = "userId")
 	private int userId;
-	private String shippinginfolist;
-	private String userlist;
-	@OneToOne(targetEntity = ShippingInfo.class)
-	@JoinColumn(name = "shippinginfoId")
-	private int shippinginfoId;
-    
+
+	
+
+	//@OneToOne
+	//@JoinColumn(name = "order_id")
+	//private List <ShippingInfo>shippinginfolist; 
 	
 	public Integer getId() {
 		return id;
@@ -57,31 +54,11 @@ public class Order {
 	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	public int getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
-	}
-   
-	public String getUserlist() {
-        return userlist;
-	}
-
-    public void setUserlist(String userlist) {
-        this.userlist = userlist;
-	}
-	public String getShippingInfolist() {
-		return shippinginfolist;
-	}
-
-    public void setShippingInfolist(String shippinginfolist) {
-        this.shippinginfolist = shippinginfolist;
-	}
-
-	@Override 
-	public String toString() {
-		return "Order{" + "id=" + this.id +  ", Customer ID:" + getUserId() + '}'; 
-	} 
+	};
 }
