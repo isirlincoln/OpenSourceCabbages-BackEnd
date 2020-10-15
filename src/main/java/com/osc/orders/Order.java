@@ -1,8 +1,7 @@
 package com.osc.orders;
 
-import java.util.List;
 import javax.persistence.*;
-import com.osc.shippinginfo.ShippingInfo;
+
 
 
 @Entity
@@ -16,12 +15,6 @@ public class Order {
     private Integer qty;
 	private Double totalPrice;
 	private int userId;
-
-	
-
-	//@OneToOne
-	//@JoinColumn(name = "order_id")
-	//private List <ShippingInfo>shippinginfolist; 
 	
 	public Integer getId() {
 		return id;

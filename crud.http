@@ -4,12 +4,12 @@
 
 
 
- #POST http://localhost:8080/user
+ #POST http://localhost:8080/user HTTP/1.1
  #content-type: application/json
 
- #{
-   #"username": "newUser",
-  #"password": "password"
+ #{   
+ #  "password": "fatAnnie",
+#   "username": "Annie",
 #}
 
 
