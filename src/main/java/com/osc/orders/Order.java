@@ -1,6 +1,9 @@
 package com.osc.orders;
 
+import java.util.List;
 import javax.persistence.*;
+import com.osc.shippinginfo.ShippingInfo;
+
 
 @Entity
 @Table(name = "orders")
@@ -11,10 +14,15 @@ public class Order {
     private Integer id;
     private Double price;
     private Integer qty;
-    private Double totalPrice;
-	private Integer supplierId;
+	private Double totalPrice;
+	private int userId;
+
 	
-    
+
+	//@OneToOne
+	//@JoinColumn(name = "order_id")
+	//private List <ShippingInfo>shippinginfolist; 
+	
 	public Integer getId() {
 		return id;
 	}
@@ -45,14 +53,12 @@ public class Order {
 
 	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
-    }
-
-    public Integer getSupplierId() {
-		return supplierId;
+	}
+	public Integer getUserId() {
+		return userId;
 	}
 
-	public void setSupplierId(Integer supplierId) {
-		this.supplierId = supplierId;
-	}
-    
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	};
 }

@@ -1,6 +1,12 @@
 package com.osc.shippinginfo;
 
+import java.util.List;
+
 import javax.persistence.*;
+
+import com.osc.orders.Order;
+
+
 
 @Entity
 @Table(name = "shippingInfo")
@@ -13,8 +19,12 @@ public class ShippingInfo {
     private String city;
     private String state;
     private int zipcode;
-    private String country;
-    private int userId;
+	private String country;
+	private int userId;
+	
+	@OneToMany
+    @JoinColumn(name = "shippingId")
+    private List <Order> orderlist;
 
 	public int getUserId() {
 		return this.userId;
@@ -71,5 +81,4 @@ public class ShippingInfo {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
 }

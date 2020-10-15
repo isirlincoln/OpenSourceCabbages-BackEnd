@@ -1,6 +1,14 @@
 package com.osc.users;
 
+import java.util.List;
+
 import javax.persistence.*;
+
+import com.osc.orders.Order;
+import com.osc.shippinginfo.ShippingInfo;
+
+
+
 
 @Entity
 @Table(name = "users")
@@ -15,6 +23,15 @@ public class User {
     private boolean supplier;
     private boolean deleted;
 
+    @OneToMany
+    @JoinColumn(name = "userId")
+    private List <ShippingInfo>shippinginfolist;
+   
+    @OneToMany
+    @JoinColumn(name = "userId")
+    private List <Order> orderlist;
+    
+    
     public Integer getId() {
         return id;
     }
@@ -61,5 +78,5 @@ public class User {
 
     public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
-	}
+    }   
 }
