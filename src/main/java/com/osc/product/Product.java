@@ -2,6 +2,7 @@ package com.osc.product;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "product")
 

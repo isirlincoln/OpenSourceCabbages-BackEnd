@@ -1,6 +1,10 @@
 package com.osc.orders;
 
+import java.util.List;
+
 import javax.persistence.*;
+
+import com.osc.product.Product;
 
 
 
@@ -14,7 +18,11 @@ public class Order {
     private Double price;
     private Integer qty;
 	private Double totalPrice;
-	private int userId;
+	private Integer userId;
+	
+	@OneToMany
+    @JoinColumn(name = "userId")
+    private List <Product> productlist;
 	
 	public Integer getId() {
 		return id;

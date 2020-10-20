@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class UserController {
 
     @Autowired
     UserRepository dao;
 
-    // READ
+    // READ   
     @GetMapping("/user")
     public List<User> getUsers() {
         List<User> foundUsers = dao.findAll();
