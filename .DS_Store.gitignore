@@ -1,4 +1,8 @@
 .DS_Store
+<<<<<<< HEAD:.DS_Store.gitignore
+crud.http
+=======
+>>>>>>> 5c359280d22da693039754e2079a2a94a6d665c3:.gitignore
 
 HELP.md
 target/
