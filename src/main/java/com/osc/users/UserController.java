@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     UserRepository dao;
 
-    // READ   
+    // READ
     @GetMapping("/user")
     public List<User> getUsers() {
         List<User> foundUsers = dao.findAll();
