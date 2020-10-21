@@ -78,5 +78,9 @@ public class User {
 
     public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
-    }   
+    }
+
+	public String orElse(String username) {
+		return null;
+	}   
 }
