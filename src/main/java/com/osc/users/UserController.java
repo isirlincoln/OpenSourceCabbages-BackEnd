@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class UserController {
 
@@ -18,15 +17,6 @@ public class UserController {
     public List<User> getUsers() {
         List<User> foundUsers = dao.findAll();
         return foundUsers;
-    }
-
-    // CREATE
-    @PostMapping("/user")
-    public ResponseEntity<User> postUser(@RequestBody User user) {
-        // This saves to the osc database using repository.
-        User createUser = dao.save(user);
-        // Gives a response to include our status code
-        return ResponseEntity.ok(createUser);
     }
 
     // UPDATE

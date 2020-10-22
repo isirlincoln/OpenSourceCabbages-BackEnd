@@ -20,6 +20,15 @@ public class User {
     private boolean supplier;
     private boolean deleted;
 
+    // need default constructor for JSON Parsing
+    public User() {
+    }
+
+    public User(String username, String password) {
+        this.setUsername(username);
+        this.setPassword(password);
+    }
+
     @OneToMany
     @JoinColumn(name = "userId")
     private List<ShippingInfo> shippinginfolist;
