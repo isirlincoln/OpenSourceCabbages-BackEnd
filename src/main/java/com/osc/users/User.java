@@ -7,9 +7,6 @@ import javax.persistence.*;
 import com.osc.orders.Order;
 import com.osc.shippinginfo.ShippingInfo;
 
-
-
-
 @Entity
 @Table(name = "users")
 public class User {
@@ -23,15 +20,23 @@ public class User {
     private boolean supplier;
     private boolean deleted;
 
+    // need default constructor for JSON Parsing
+    public User() {
+    }
+
+    public User(String username, String password) {
+        this.setUsername(username);
+        this.setPassword(password);
+    }
+
     @OneToMany
     @JoinColumn(name = "userId")
-    private List <ShippingInfo>shippinginfolist;
-   
+    private List<ShippingInfo> shippinginfolist;
+
     @OneToMany
     @JoinColumn(name = "userId")
-    private List <Order> orderlist;
-    
-    
+    private List<Order> orderlist;
+
     public Integer getId() {
         return id;
     }
@@ -77,10 +82,10 @@ public class User {
     }
 
     public void setDeleted(boolean deleted) {
-		this.deleted = deleted;
+        this.deleted = deleted;
     }
 
-	public String orElse(String username) {
-		return null;
-	}   
+    public String orElse(String username) {
+        return null;
+    }
 }
